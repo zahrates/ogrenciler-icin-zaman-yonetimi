@@ -1,0 +1,164 @@
+:root{
+    color-scheme: light dark;
+
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
+  color: white;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+.icerik {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  text-align: center;
+}
+
+.baslik-alani {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  padding: 30px;
+  backdrop-filter: blur(12px);
+}
+
+.baslik-alani .etiket {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #f4f4f4;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.baslik-alani h1 {
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  margin-bottom: 18px;
+  letter-spacing: 0.08em;
+}
+
+.baslik-alani p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.kutular {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.kutular-item {
+  padding: 26px;
+  border-radius: 10px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  background: linear-gradient(135deg, rgba(85,107,47,0.95), rgba(207, 213, 199, 0.95));
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+}
+
+.kutular-item h2 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+.kutular-item p {
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.kazanımlar,
+.icerik-listesi {
+  background: rgba(0, 0, 0, 0.45);
+ border-radius: 24px;
+  padding: 30px;
+  text-align: left;
+}
+
+.kazanımlar h2,
+.icerik-listesi h2 {
+  font-size: 1.7rem;
+  margin-bottom: 18px;
+}
+
+.kazanımlar ul,
+.icerik-listesi ul {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.kazanımlar li {
+  padding-left: 18px;
+  position: relative;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.kazanımlar li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #63e2ff;
+}
+
+.icerik-listesi a {
+  color: #9fb1bd;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.icerik-listesi a:hover {
+  color: hsl(0, 93%, 17%);
+}
+
+.icerik-listesi li {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 100px) {
+  .icerik {
+    padding: 30px 16px 60px;
+  }
+
+  .kutular-item {
+    min-height: 150px;
+  }
+}
