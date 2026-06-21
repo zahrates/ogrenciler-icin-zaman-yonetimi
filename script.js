@@ -16,21 +16,9 @@ document.querySelectorAll(".fade-up").forEach((element) => {
 window.addEventListener('load', () => {
   window.scrollTo(0, 0);
 });
-/*
-// Navbar scroll animasyonu
-let lastScrollTop = 0;
-const navbar = document.querySelector('.navbar');
-*/
+/*scroll*/
 window.addEventListener('scroll', () => {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  
-  if (scrollTop > lastScrollTop) {
-    // Aşağı scroll'lanıyor → Navbar gizle
-    navbar.style.transform = 'translateY(-100%)';
-  } else {
-    // Yukarı scroll'lanıyor → Navbar göster
-    navbar.style.transform = 'translateY(0)';
-  }
   
   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
@@ -71,9 +59,12 @@ toggle.addEventListener('change', function () {
 });
 
 
-/*pomodoro    Ü<ERİNDEN TEKRAR GEÇ */
+/*pomodoro    ÜZERİNDEN TEKRAR GEÇ */
 let sure = 25 * 60;
 let sayac;
+let baslangicZamani;
+let kalanSure = 5000; // Toplam sayaç süresi (Örn: 5 saniye)
+const islem = () => console.log("Süre doldu!");
 
 function guncelle() {
 
@@ -104,8 +95,22 @@ function baslat(){
 }
 
 function duraklat(){
-    clearInterval(sayac);
+    if (sayac){
+      clearTimeout(sayac);
     sayac = null;
+    kalanSure -= (Date.now() - baslangicZamani);
+    }
+}
+
+function devam(){
+    if (!sayac && kalanSure > 0) {
+        baslangicZamani = Date.now(); // Başlangıç anını kaydet
+        // Kalan süre kadar yeni bir zamanlayıcı başlat
+        sayac = setTimeout(() => {
+            islem();
+            kalanSure = 0; // İşlem bitince süreyi sıfırla
+        }, kalanSure);
+    }
 }
 
 function sifirla(){

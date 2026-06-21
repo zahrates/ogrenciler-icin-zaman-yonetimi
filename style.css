@@ -6,6 +6,8 @@
 
 :root {
   color-scheme: light dark;
+
+  --brightness: 0.95;
   
   /* Ana Arkaplanlar */
   --bg-main: #f0f4f8;
@@ -52,7 +54,7 @@ html {
 .navbar {
   position: sticky;
   top: 0;
-  background: rgba(206, 107, 148, 0.9);
+  background: rgba(206, 107, 148, 0.521);
   backdrop-filter: blur(10px);
   z-index: 100;
   padding: 15px 0;  transition: transform 0.3s ease-in-out;}
@@ -113,8 +115,7 @@ a {
 .zaman-algısı,
 .zaman-yonetimi,
 .ders-calısma-teknikleri,
-.pomodoro,
-.hakkımda {
+.pomodoro{
     transition: all 0.3s ease;
 }
 
@@ -356,6 +357,10 @@ html.dark-mode .kazanımlar-aciklama {
     border-radius: 12px;
     position: static;/*mobilde alt alta listeleme için*/
   }
+  .pomodoro {
+    grid-template-columns: 1fr;
+
+  }
 }
 
 
@@ -438,7 +443,7 @@ html.dark-mode .footer {
   margin: 8px 0;
   line-height: 1.6;
 }
-
+/*******************************************************************************************/
 /* tema geçişi*/
 .theme-switch {
   position: relative;
@@ -516,3 +521,5 @@ input:checked + .slider .sun-icon {
 input:checked + .slider .moon-icon { 
   opacity: 1; 
 }
+
+/************************************************************************************************************/
