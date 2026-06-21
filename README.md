@@ -1,6 +1,6 @@
 
 ## 🔗 Canlı Demo
-https://...
+[https://...](https://zahrates.github.io/ogrenciler-icin-zaman-yonetimi/#zaman-nedir)
 
 -----------------------------------------------------------------
 # Öğrenciler İçin Zaman Yönetimi ve Verimli Ders ÇalışmaTeknikleri
