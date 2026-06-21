@@ -60,12 +60,11 @@ toggle.addEventListener('change', function () {
 
 
 /*pomodoro sayaç mantığı */
-let sure = 25 * 60;
+let sure = VARSAYILAN_SURE;
 let sayac;
-let kalanSure = 5000; // 25 dk sn cinsinden
+const VARSAYILAN_SURE = 25 * 60;
 
 function guncelle() {
-
     const dakika = Math.floor(sure / 60);
     const saniye = sure % 60;
 
@@ -73,12 +72,11 @@ function guncelle() {
         `${dakika.toString().padStart(2,"0")}:${saniye.toString().padStart(2,"0")}`;
 }
 
-function baslat(){
 
+function baslat(){
     if(sayac) return;
 
     sayac = setInterval(() => {
-
         if(sure > 0){
             sure--;
             guncelle();
@@ -88,8 +86,7 @@ function baslat(){
             sayac = null;
             alert("Pomodoro tamamlandı 🎉");
         }
-
-    },1000);
+    }, 1000);
 }
 
 function duraklat(){
