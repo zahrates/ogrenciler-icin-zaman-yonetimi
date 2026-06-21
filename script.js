@@ -59,12 +59,10 @@ toggle.addEventListener('change', function () {
 });
 
 
-/*pomodoro    ÜZERİNDEN TEKRAR GEÇ */
+/*pomodoro sayaç mantığı */
 let sure = 25 * 60;
 let sayac;
-let baslangicZamani;
-let kalanSure = 5000; // Toplam sayaç süresi (Örn: 5 saniye)
-const islem = () => console.log("Süre doldu!");
+let kalanSure = 5000; // 25 dk sn cinsinden
 
 function guncelle() {
 
@@ -96,30 +94,25 @@ function baslat(){
 
 function duraklat(){
     if (sayac){
-      clearTimeout(sayac);
-    sayac = null;
-    kalanSure -= (Date.now() - baslangicZamani);
+      clearInterval(sayac);
+      sayac = null;
     }
 }
 
 function devam(){
-    if (!sayac && kalanSure > 0) {
-        baslangicZamani = Date.now(); // Başlangıç anını kaydet
-        // Kalan süre kadar yeni bir zamanlayıcı başlat
-        sayac = setTimeout(() => {
-            islem();
-            kalanSure = 0; // İşlem bitince süreyi sıfırla
-        }, kalanSure);
+    if (!sayac && sure > 0){
+      baslat();
     }
 }
 
 function sifirla(){
 
-    clearInterval(sayac);
-    sayac = null;
+    if (sayac) {
+      clearInterval(sayac);
+      sayac = null;
+    }
 
-    sure = 25 * 60;
-
+    sure = VARSAYILAN_SURE;
     guncelle();
 }
 
