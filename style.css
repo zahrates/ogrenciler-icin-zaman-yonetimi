@@ -229,7 +229,7 @@ html.dark-mode .pomodoro{
 .kazanımlar ul,
 .icerik-listesi ul,
 .zaman-yonetimi ul,
-.pomodoro {
+.pomodoro ul {
   list-style: none;
   display: grid;
   gap: 12px;
@@ -385,6 +385,8 @@ html.dark-mode .kazanımlar-aciklama {
     padding:30px;
     text-align:center;
     color:var(--text-primary);
+    width: 100%;
+    
 }
 
 html.dark-mode .pomodoro{

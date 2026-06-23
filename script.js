@@ -60,9 +60,10 @@ toggle.addEventListener('change', function () {
 
 
 /*pomodoro sayaç mantığı */
+const VARSAYILAN_SURE = 25 * 60;
 let sure = VARSAYILAN_SURE;
 let sayac;
-const VARSAYILAN_SURE = 25 * 60;
+
 
 function guncelle() {
     const dakika = Math.floor(sure / 60);
